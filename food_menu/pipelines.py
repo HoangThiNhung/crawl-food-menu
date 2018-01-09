@@ -6,9 +6,10 @@
 # See: http://doc.scrapy.org/en/latest/topics/item-pipeline.html
 
 import json
+
 class FoodMenuPipeline(object):
     def open_spider(self, spider):
-        self.file = open('data.json', 'w', encoding='utf-8')
+        self.file = open('data.json', 'w')
 
     def close_spider(self, spider):
         self.file.close()

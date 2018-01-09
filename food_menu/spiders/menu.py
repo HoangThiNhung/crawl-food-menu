@@ -27,8 +27,8 @@ class MenuSpider(scrapy.Spider):
     def parse_product(self, response):
         sel = Selector(response)
         item = FoodMenuItem()
-        item['title'] = sel.xpath('//*[@id="main-content"]/div[1]/div/div/div/div/div[2]/div/div/div/section/div/div/div/div/div/div[2]/div[1]/h1/text()').extract_first()
+        item['title'] = sel.xpath('//*[@id="main-content"]/div[1]/div/div/div/div/div[2]/div/div/div/section/div/div/div/div/div/div[2]/div[1]/h1/text()').extract()[0]
         item['image'] = response.meta['image']
         item['link'] = response.url
-        item['price'] = sel.xpath('//*[@id="main-content"]/div[1]/div/div/div/div/div[2]/div/div/div/section/div/div/div/div/div/div[2]/div[2]/div/p/span[2]/text()').extract_first().replace('  ','')
+        item['price'] = sel.xpath('//*[@id="main-content"]/div[1]/div/div/div/div/div[2]/div/div/div/section/div/div/div/div/div/div[2]/div[2]/div/p/span[2]/text()').extract()[0].replace('  ','')
         yield item
