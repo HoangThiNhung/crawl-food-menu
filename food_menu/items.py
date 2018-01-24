@@ -11,6 +11,7 @@ import scrapy
 class FoodMenuItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
+    category = scrapy.Field()
     link = scrapy.Field()
     image = scrapy.Field()
     price = scrapy.Field()
